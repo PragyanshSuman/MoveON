@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-display), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  --color-ink: #17172b;
+  --color-ink-soft: #4b4b63;
+  --color-paper: #faf6ef;
+  --color-card: #ffffff;
+  --color-line: #e9e2d6;
+  --color-kraft: #c9a36b;
+  --color-kraft-soft: #f3e8d6;
+  --color-leave: #e2541b;
+  --color-leave-soft: #fde9df;
+  --color-arrive: #0e7a6d;
+  --color-arrive-soft: #dcf2ee;
+  --color-tape: #f6c445;
+  --color-danger: #c62828;
+  --color-ok: #1b7f3b;
+}
+
+@layer base {
+  html { -webkit-tap-highlight-color: transparent; }
+  body { @apply bg-paper text-ink antialiased; }
+  h1, h2, h3 { font-family: var(--font-display); letter-spacing: -0.02em; }
+  :focus-visible { outline: 3px solid var(--color-tape); outline-offset: 2px; }
+}
+
+@utility container-page { @apply mx-auto w-full max-w-6xl px-4 sm:px-6; }
+@utility card { @apply rounded-2xl border border-line bg-card; }
+@utility btn { @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50; }
+@utility btn-primary { @apply btn bg-ink text-white hover:bg-ink/90; }
+@utility btn-leave { @apply btn bg-leave text-white hover:bg-leave/90; }
+@utility btn-arrive { @apply btn bg-arrive text-white hover:bg-arrive/90; }
+@utility btn-ghost { @apply btn border border-line bg-white text-ink hover:bg-kraft-soft/60; }
+@utility btn-danger { @apply btn border border-danger/30 bg-white text-danger hover:bg-danger/5; }
+@utility input { @apply w-full rounded-xl border border-line bg-white px-3 py-2.5 text-sm text-ink placeholder:text-ink-soft/60 focus:border-ink focus:outline-none; }
+@utility label { @apply mb-1 block text-xs font-semibold uppercase tracking-wide text-ink-soft; }
+@utility chip { @apply inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-semibold; }
+@utility tape { background: repeating-linear-gradient(-45deg, var(--color-tape), var(--color-tape) 10px, #f8d26e 10px, #f8d26e 20px); }
